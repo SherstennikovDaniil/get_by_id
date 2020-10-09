@@ -1,5 +1,7 @@
 from TikTokApi import TikTokApi
 import sqlite3
+import sys
+
 
 
 api = TikTokApi()
@@ -34,11 +36,18 @@ def get_by_nick(id):
         print(id, '-хуесос.')
 
 
+        
+SCR_COUNT = 5
+try:
+    script_id = int(sys.argv[1])
+except:
+    script_id = 0
+    
 if __name__ == "__main__":
     while True:
         try:
-            for id in list:
-                get_by_nick(id)
-                list.remove(id)
+            for (index, id) in enumerate(list):
+                if index % SCR_COUNT == script_id:
+                    get_by_nick(id)
         except:
             pass
