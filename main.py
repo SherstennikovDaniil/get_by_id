@@ -25,7 +25,7 @@ with open("id_list.txt", "r", encoding='utf-8') as txt:
 
 def get_by_nick(id):
     try:
-        cr.execute(f"SELECT uid FROM users WHERE uid = '{id}'") #я хуй знает, в упор не вижу
+        cr.execute(f"SELECT uid FROM users WHERE uid = '{id}'") #я хуй знает, в упор не вижу upd вижу, но непонимаю, какого хуя скрипт творит
         if cr.fetchall() is None:
             data = api.getUser(id)
             uid = data["userInfo"]["user"]["uniqueId"]
