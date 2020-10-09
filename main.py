@@ -25,8 +25,8 @@ with open("id_list.txt", "r", encoding='utf-8') as txt:
 
 def get_by_nick(id):
     try:
-        cr.execute(f"SELECT uid FROM users WHERE uid = '{id}'") #на всякий случай подгружу ещё раз, этот код только что
-        if cr.fetchone() is None:                               #роббил
+        cr.execute(f"SELECT uid FROM users WHERE uid = '{id}'") #я хуй знает, в упор не вижу
+        if cr.fetchone() is None:
             data = api.getUser(id)
             uid = data["userInfo"]["user"]["uniqueId"]
             nick = data["userInfo"]["user"]["nickname"]
