@@ -6,6 +6,14 @@ api = TikTokApi()
 db = sqlite3.connect('data.db')
 cr = db.cursor()
 
+list = []
+with open("id_list.txt", "r", encoding='utf-8') as txt:
+    for line in txt:
+        if "Username" in line:
+            a = line.split(':')
+            b = [str(a[1]).strip()]
+            list = list + b
+
 
 def get_by_nick(id):
     try:
@@ -26,16 +34,10 @@ def get_by_nick(id):
         print(id, '-хуесос.')
 
 
-
-list = []
-with open("id_list.txt", "r", encoding='utf-8') as txt:
-    for line in txt:
-        if "Username" in line:
-            a = line.split(':')
-            b = [str(a[1]).strip()]
-            list = list + b
-
-
 if __name__ == "__main__":
-    for id in list:
-        get_by_nick(id)
+    try:
+        for id in list:
+            get_by_nick(id)
+            list.pop([id])
+    except:
+        print("скрипт слетел, но не ссым")
