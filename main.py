@@ -35,9 +35,10 @@ def get_by_nick(id):
 
 
 if __name__ == "__main__":
-    try:
-        for id in list:
-            get_by_nick(id)
-            list.pop([id])
-    except:
-        print("скрипт слетел, но не ссым")
+    while True:
+        try:
+            for id in list:
+                get_by_nick(id)
+                list.remove(id)
+        except:
+            pass
