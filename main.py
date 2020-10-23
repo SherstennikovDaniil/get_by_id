@@ -25,7 +25,7 @@ with open("id_list.txt", "r", encoding='utf-8') as txt:
 
 def get_by_nick(id):
     try:
-        cr.execute(f"SELECT uid FROM users WHERE uid = '{id}'") #я хуй знает, в упор не вижу
+        cr.execute(f"SELECT uid FROM users WHERE uid = '{id}'")
         if cr.fetchone() is None:
             data = api.getUser(id)
             uid = data["userInfo"]["user"]["uniqueId"]
@@ -39,7 +39,7 @@ def get_by_nick(id):
         else:
             print(id, 'уже есть.')
     except:
-        print(id, '-хуесос.')
+        print(id, '-')
 
 
 SCR_COUNT = 5
